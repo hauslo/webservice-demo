@@ -1,0 +1,24 @@
+version: "3.8"
+
+networks:
+  website:
+    name: website
+
+services:
+  website:
+    image: node:current
+    init: true
+    networks:
+      website:
+        aliases:
+          - website
+          - website.${PROJECT_DOMAIN}
+    volumes:
+      - "${DEVOPS_ROOT}/website/:${DEVOPS_ROOT}/website/"
+    environment:
+      - CI=true
+    working_dir: ${DEVOPS_ROOT}/website/
+    command: ["./node_modules/react-scripts/bin/react-scripts.js", "start"]
+    user: "node"
+    ports:
+      - "8080:3000"
