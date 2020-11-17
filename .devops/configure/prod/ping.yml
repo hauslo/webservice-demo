@@ -1,0 +1,7 @@
+- name: ping all
+  hosts: all
+  remote_user: ubuntu
+
+  tasks:
+    - name: ping all
+      ping:

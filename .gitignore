@@ -1,2 +1,5 @@
 *.code-workspace
 /.devops/local.env
+/.devops/.local/
+/.devops/provision/*/.terraform/
+/.devops/configure/*/inventory
